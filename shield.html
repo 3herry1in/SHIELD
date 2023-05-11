@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ForgeryNet Dataset</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- OpenMMLab Data Protocol -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.9/themes/default/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!--Main Navigation-->
+    <header>
+  
+      <!-- Navbar -->
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+        <div class="container">
+  
+          <!-- Brand -->
+          <a class="navbar-brand waves-effect" href="#">
+            <strong class="red-text">ForgeryNet</strong>
+          </a>
+  
+          <!-- Collapse -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <!-- Links -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  
+            <!-- Left -->
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link waves-effect" href="#">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link waves-effect" href="#Video">Video</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link waves-effect" href="#download">Download</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link waves-effect" href="#paper">Paper</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link waves-effect" href="#project">Project</a>
+              </li>
+            </ul>
+  
+            <!-- Right 
+            <ul class="navbar-nav nav-flex-icons">
+              <li class="nav-item">
+                <a href="http://mmlab.ie.cuhk.edu.hk" class="nav-link waves-effect" target="_blank">
+                  <i class="fas fa-globe"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="https://github.com/open-mmlab" class="nav-link border border-light rounded waves-effect"
+                  target="_blank">
+                  <i class="fab fa-github mr-2"></i>OpenMMLab
+                </a>
+              </li>
+            </ul>
+            -->
+  
+          </div>
+  
+        </div>
+      </nav>
+      <!-- Navbar -->
+
+    <!--Main layout-->
+    <main class="mt-5 pt-5">
+      <div class="container">
+        <!--Section: Jumbotron-->
+        <section class="card peach-gradient wow fadeIn" id="intro">
+          <!-- Content -->
+          <div class="card-body text-white text-center py-5 px-5 my-5">
+            <img src="img/teaser.png"
+              class="img-fluid" alt="img-404">
+            <h1 class="mb-4">
+              <p>
+              </p>
+              <strong>  
+                ForgeryNet: A Versatile Benchmark for Comprehensive Forgery Analysis</strong>
+            </h1>
+            <p>
+              Yinan He,
+              Bei Gan,
+              Siyu Chen,
+              Yichun Zhou,
+              <a href="https://gjyin91.github.io/"> Guojun Yin,
+              Luchuan Song,
+
+              <a href="https://lucassheng.github.io/"> Lu Sheng,
+              <a href="https://amandajshao.github.io/"> Jing Shao,
+              <a href="https://liuziwei7.github.io"> Ziwei Liu
+                
+            </p>
+            
+            <a target="_blank" href="https://github.com/yinanhe/forgerynet" class="btn btn-outline-white btn-lg">Find more
+              <!-- <i class="fas fa-graduation-cap ml-2"></i> -->
+            </a>
+          
+
+          </div>
+          <!-- Content -->
+        </section>
+        <!--Section: Jumbotron-->
+
+        <!--
+        <section class="card wow fadeIn">
+
+          <div class="card-body text-white text-center py-5 px-5 my-5">
+
+            <img src="img/teaser.PNG"
+              class="img-fluid" alt="img-404">
+
+          </div>
+        </section>-->
+            
+        <section class="pt-5" id='#Challenge'>
+          <div class="wow fadeIn">
+            <h2 class="h1 text-left mb-5">Challenge</h2>
+          </div>
+          <div class="filter filter-basic">
+            <hr class="mb-5">
+            <div class="filter-gallery">
+              <div class="filter-item" data-category="ForgeryNet">
+                  <div class="col-lg-12 col-xl-12 ml-xl-4 mb-4">               
+                      <h8 class="mb-3 font-weight-bold dark-grey-text">
+                      <a href="https://competitions.codalab.org/competitions/33386"> ForgeryNet Challenge 2021 </a> will be hosted in the <a href="https://sense-human.github.io/"> ICCV SenseHuman workshop</a> ！
+                      </h8>
+                  </div>
+                  <hr class="mb-5">
+              </div>
+            </div>
+          </div>
+        </section> 
+
+                
+        <!-- <section class="pt-5" id='#Video'>
+          <div class="wow fadeIn">
+            <h2 class="h1 text-left mb-5">Video</h2>
+          </div>
+          <div class="filter filter-basic">
+            <hr class="mb-5">
+            <div class="filter-gallery">
+              <div class="filter-item" data-category="place">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/e8XIL3Di2Y8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <hr class="mb-5">
+              </div>
+            </div>
+          </div>
+        </section>  -->
+
+
+        <!--Section: Cards-->
+        <section class="pt-5" id='#download'>
+
+          <!-- <div class="card-body text-white text-center py-5 px-5 my-5">
+
+            <img src="img/teaser.png"
+              class="img-fluid" alt="img-404">
+
+          </div> -->
+
+          <!-- Heading & Description -->
+          <div class="wow fadeIn">
+            <!--Section heading-->
+            <h2 class="h1 text-left mb-5">Download</h2>
+          </div>
+          <!-- Heading & Description -->
+
+          <div class="filter filter-basic">
+            <hr class="mb-5">
+            <div class="filter-gallery">
+
+
+              
+
+        <!--Grid dataset-->
+
+
+        <div class="filter-item" data-category="place">
+            <div class="row mt-3 wow fadeIn">
+            <!--Grid column-->
+            <div class="col-lg-5 col-xl-4 mb-4">
+                <!--Featured image-->
+                <div class="view overlay rounded z-depth-1">
+                <!-- <img src="http://mmlab.ie.cuhk.edu.hk/images/datasets/cuhk_square.jpg" -->
+                <img src="img/dataset.png"
+                    class="img-fluid" alt="img-404">
+                </div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-7 col-xl-7 ml-xl-4 mb-4">
+                <h3 class="mb-3 font-weight-bold dark-grey-text">
+                <strong>ForgeryNet Dataset</strong>
+                </h3>
+                
+                </p>
+                <p class="grey-text">
+                ForgerNet dataset contains 2.9 million images and 221,247 videos,  7 image-level approaches and 8 video-level approaches manipulations from all over the world (click "Download * Set" to download). Each video and image is associated with its label (click "Download * List" to download).   <br>
+                MD5: <br>
+                272d385f3cac5dd6feabc25711c18a41  Training.tar  <br>   
+                  You should use `cat Training.tar.* >> Training.tar` after downloading the training set from Google Drive. <br>  
+                df320faca2128e022764f8d0e4bc75a1  Validation.tar  <br>
+                e4218faa4b934345977202edfbf89301  public_test_images.tar  <br>
+                92b870009cb03832b2c2795b6a35629f  public_test_videos.tar  <br>
+                <!-- 7d2c0cf50bdc77890ace1ba4461e1893  Test_with_real.tar  <br> -->
+                <!-- 8558b99366ccb93cd9da56f600f0901f  test_list.tar  <br> -->
+                </p>
+                
+                <p class="grey-text">
+                If you can access Google Drive:   <br>
+                </p>
+
+                <a href="https://drive.google.com/drive/folders/1gViqLc4l9sT1WTB-_hlcDUCWYskT2_LE?usp=sharing" class="btn btn-sm btn-outline-dark">Download   Training   Set
+                    <i class="fas fa-download ml-2"></i>
+                </a>
+                      
+                <a href="https://drive.google.com/file/d/1am20PkJVkKtXJvyH58wLcGoat3zGDudO/view?usp=sharing" class="btn btn-sm btn-outline-dark">Download Validation Set
+                    <i class="fas fa-download ml-2"></i>
+                </a>  
+              
+                <a href="https://drive.google.com/file/d/1conYQXWguAwJ1eEwewHyMBGUtgjgR_sM/view?usp=sharing" class="btn btn-sm btn-outline-dark">Download Image Test Set
+                    <i class="fas fa-download ml-2"></i>
+                </a>  
+                
+                <a href="https://drive.google.com/file/d/1CSJOkDR_jJvq7qUGP8oGcwpoPdKGzfgb/view?usp=sharing" class="btn btn-sm btn-outline-dark">Download Video Test Set
+                    <i class="fas fa-download ml-2"></i>
+                </a>  
+
+                <a href="https://drive.google.com/file/d/1ZqPqmYdqmq4_HLZu1c5ySXhcR1WQWQ9L/view?usp=sharing" class="btn btn-sm btn-outline-dark">Download   Training   List
+                    <i class="fas fa-download ml-2"></i>
+                </a>
+              
+                <a href="https://drive.google.com/file/d/14Rqq4C4oHK6FEqyTIiVcQy7wQuMHGQzu/view?usp=sharing" class="btn btn-sm btn-outline-dark">Download  Validation  List
+                    <i class="fas fa-download ml-2"></i>
+                </a>
+              
+                <a href="https://raw.githubusercontent.com/yinanhe/ForgeryNet/main/Readme.txt" class="btn btn-sm btn-outline-dark"> README
+                    <i class="fas fa-download ml-2"></i>
+                </a>
+                
+                <p class="grey-text">
+                If you cannot access Google:   <br>
+                </p>
+                
+                <a href="https://115.com/s/swnk84d3wl3?password=cvpr&#ForgeryNet" class="btn btn-sm btn-outline-dark">Download Train&Val"
+                    <i class="fas fa-download ml-2"></i>
+                </a>
+              
+            </div>
+            <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+            <hr class="mb-5">
+
+            We   construct   theForgeryNet dataset, an extremely large face forgery datasetwith  unified  annotations  in  image-  and  video-level  dataacross  four  tasks:   1)Image  Forgery  Classification,  in-cluding two-way (real / fake),  three-way (real / fake with identity-replaced  forgery  approaches  /  fake  with  identity-remained  forgery  approaches),  andn-way  (real  and15respective  forgery  approaches)  classification.2)Spa-tial  Forgery  Localization,  which  segments  the  manipu-lated  area  of  fake  images  compared  to  their  correspond-ing  real  images.   3)Video  Forgery  Classification,  whichre-defines the video-level forgery classification with manip-ulated  frames  in  random  positions.    This  task  is  impor-tant  because  attackers  in  real  world  are  free  to  manipu-late any target frame.  and 4)Temporal Forgery Localiza-tion, to localize the temporal segments which are manipu-lated.   ForgeryNet is by far the largest publicly availabledeep face forgery dataset in terms of data-scale (2.9 millionimages, 221,247 videos), manipulations (7 image-level ap-proaches, 8 video-level approaches), perturbations (36 in-dependent and more mixed perturbations) and annotations(6.3  million  classification  labels,  2.9  million  manipulated area annotations and 221,247 temporal forgery segment la-bels).  We perform extensive benchmarking and studies ofexisting face forensics methods and obtain several valuableobservations.  We hope that the scale, quality, and varietyof our ForgeryNet dataset will foster further research andinnovation in the area of face forgery classification, as wellas spatial and temporal forgery localizationetc.
+
+            <hr class="mb-5">
+        </div>
+        <!--Grid dataset-->
+
+                  </div><!-- filter-gallary -->
+
+                </div><!-- filter -->
+
+
+                <!--Pagination-->
+                <!-- <nav class="d-flex justify-content-center wow fadeIn">
+                  <ul class="pagination pg-blue">
+
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    </li>
+
+                    <li class="page-item active">
+                      <a class="page-link" href="#">1
+                        <span class="sr-only">(current)</span>
+                      </a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">4</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">5</a>
+                    </li>
+
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav> -->
+                <!--Pagination-->
+
+              </section>
+              <!--Section: Cards-->
+
+
+        <section class="pt-5" id='#paper'>
+          <div class="wow fadeIn">
+            <h2 class="h1 text-left mb-5">Paper</h2>
+          </div>
+          <div class="filter filter-basic">
+            <hr class="mb-5">
+            <div class="filter-gallery">
+              <div class="filter-item" data-category="place">
+                  <div class="col-lg-7 col-xl-7 ml-xl-4 mb-4">
+                      <h8 class="mb-3 font-weight-bold dark-grey-text">
+                      <a href="doc/forgerynet.pdf" download>-> Click to download our paper<i class="fas fa-download ml-2"></i>
+                      </a>
+                      </h8>
+                      
+                      <p class="grey-text">
+                      </p>
+                      <p class="grey-text">
+                      </p>
+
+                      <div class="row mt-3 wow fadeIn">
+                        <div class="col-lg-3 col-xl-4 ml-xl-4 mb-4">
+                          <div class="view overlay rounded z-depth-1">
+  <!--                           <a href="https://ai.bupt.edu.cn"> -->
+                            <img src="img/paper1.png"
+                              class="img-fluid" alt="paper-first-page">
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-xl-4 ml-xl-4 mb-4">
+                          <div class="view overlay rounded z-depth-1">
+  <!--                           <a href="https://ai.bupt.edu.cn"> -->
+                            <img src="img/paper2.png"
+                              class="img-fluid" alt="paper-second-page">
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <hr class="mb-5">
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="pt-5" id='#project'>
+          <div class="wow fadeIn">
+            <h2 class="h1 text-left mb-5">Project</h2>
+          </div>
+          <div class="filter filter-basic">
+            <hr class="mb-5">
+            <div class="filter-gallery">
+              <div class="filter-item" data-category="ForgeryNet">
+                  <div class="col-lg-12 col-xl-12 ml-xl-4 mb-4">  
+                <!--<a href="http://xiongyu.me/placepedia.tar" class="btn btn-sm btn-outline-dark">Project Github
+                    <i class="fas fa-download ml-2"></i>
+                </a>-->                
+                      <h8 class="mb-3 font-weight-bold dark-grey-text">
+                      <a href="https://github.com/yinanhe/forgerynet">-> Click to ForgeryNet github repo
+                      </a>
+                      </h8>
+                  </div>
+                  <hr class="mb-5">
+              </div>
+            </div>
+          </div>
+        </section> 
+
+                
+
+      </div>
+    </main>
+    <!--Main layout-->
+
+</body>
+
+</html>
