@@ -1,408 +1,536 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+	google.load("jquery", "1.3.2");
+</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight: 300;
+		font-size: 18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+
+	h1 {
+		font-weight: 300;
+	}
+
+	.disclaimerbox {
+		background-color: #eee;
+		border: 1px solid #eeeeee;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+
+	a:link,
+	a:visited {
+		color: #1367a7;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: #208799;
+	}
+
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+
+	.layered-paper-big {
+		/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+			0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The top layer shadow */
+			5px 5px 0 0px #fff,
+			/* The second layer */
+			5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The second layer shadow */
+			10px 10px 0 0px #fff,
+			/* The third layer */
+			10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The third layer shadow */
+			15px 15px 0 0px #fff,
+			/* The fourth layer */
+			15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The fourth layer shadow */
+			20px 20px 0 0px #fff,
+			/* The fifth layer */
+			20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The fifth layer shadow */
+			25px 25px 0 0px #fff,
+			/* The fifth layer */
+			25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+		/* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.layered-paper {
+		/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+			0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The top layer shadow */
+			5px 5px 0 0px #fff,
+			/* The second layer */
+			5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The second layer shadow */
+			10px 10px 0 0px #fff,
+			/* The third layer */
+			10px 10px 1px 1px rgba(0, 0, 0, 0.35);
+		/* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	hr {
+		border: 0;
+		height: 1.5px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+</style>
+
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>ForgeryNet Dataset</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- OpenMMLab Data Protocol -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.9/themes/default/style.min.css" rel="stylesheet">
+	<title>SHIELD: a Specialized dataset for Hybrid blInd forEnsics of worLd leaDers</title>
 </head>
 
 <body>
+	<br>
 
-    <!--Main Navigation-->
-    <header>
-  
-      <!-- Navbar -->
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-        <div class="container">
-  
-          <!-- Brand -->
-          <a class="navbar-brand waves-effect" href="#">
-            <strong class="red-text">ForgeryNet</strong>
-          </a>
-  
-          <!-- Collapse -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-  
-          <!-- Links -->
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-  
-            <!-- Left -->
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link waves-effect" href="#">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link waves-effect" href="#Video">Video</a>
-              </li> -->
-              <li class="nav-item">
-                <a class="nav-link waves-effect" href="#download">Download</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link waves-effect" href="#paper">Paper</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link waves-effect" href="#project">Project</a>
-              </li>
-            </ul>
-  
-            <!-- Right 
-            <ul class="navbar-nav nav-flex-icons">
-              <li class="nav-item">
-                <a href="http://mmlab.ie.cuhk.edu.hk" class="nav-link waves-effect" target="_blank">
-                  <i class="fas fa-globe"></i>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="https://github.com/open-mmlab" class="nav-link border border-light rounded waves-effect"
-                  target="_blank">
-                  <i class="fab fa-github mr-2"></i>OpenMMLab
-                </a>
-              </li>
-            </ul>
-            -->
-  
-          </div>
-  
-        </div>
-      </nav>
-      <!-- Navbar -->
+	<center>
+		<span style="font-size:30px">SHIELD: a Specialized dataset for Hybrid blInd forEnsics of worLd leaDers
+		</span>
+	</center>
 
-    <!--Main layout-->
-    <main class="mt-5 pt-5">
-      <div class="container">
-        <!--Section: Jumbotron-->
-        <section class="card peach-gradient wow fadeIn" id="intro">
-          <!-- Content -->
-          <div class="card-body text-white text-center py-5 px-5 my-5">
-            <img src="img/teaser.png"
-              class="img-fluid" alt="img-404">
-            <h1 class="mb-4">
-              <p>
-              </p>
-              <strong>  
-                ForgeryNet: A Versatile Benchmark for Comprehensive Forgery Analysis</strong>
-            </h1>
-            <p>
-              Yinan He,
-              Bei Gan,
-              Siyu Chen,
-              Yichun Zhou,
-              <a href="https://gjyin91.github.io/"> Guojun Yin,
-              Luchuan Song,
+	<br>
 
-              <a href="https://lucassheng.github.io/"> Lu Sheng,
-              <a href="https://amandajshao.github.io/"> Jing Shao,
-              <a href="https://liuziwei7.github.io"> Ziwei Liu
-                
-            </p>
-            
-            <a target="_blank" href="https://github.com/yinanhe/forgerynet" class="btn btn-outline-white btn-lg">Find more
-              <!-- <i class="fas fa-graduation-cap ml-2"></i> -->
-            </a>
-          
+	<!-- <table align=center width=900px>
+		<tr>
+			<td align=center width=80px>
+				<center>
+					<span style="font-size:18px"><a href="https://liming-jiang.com/">Liming Jiang</a></span>
+				</center>
+			</td>
 
-          </div>
-          <!-- Content -->
-        </section>
-        <!--Section: Jumbotron-->
+			<td align=center width=80px>
+				<center>
+					<span style="font-size:18px"><a href="https://liren2515.github.io/page/">Ren Li</a></span>
+				</center>
+			</td>
 
-        <!--
-        <section class="card wow fadeIn">
+			<td align=center width=80px>
+				<center>
+					<span style="font-size:18px"><a href="http://wywu.github.io">Wayne Wu</a></span>
+				</center>
+			</td>
 
-          <div class="card-body text-white text-center py-5 px-5 my-5">
+			<td align=center width=80px>
+				<center>
+					<span style="font-size:18px"><a
+							href="https://scholar.google.com/citations?user=AerkT0YAAAAJ&hl=en">Chen Qian</a></span>
+				</center>
+			</td>
 
-            <img src="img/teaser.PNG"
-              class="img-fluid" alt="img-404">
+			<td align=center width=80px>
+				<center>
+					<span style="font-size:18px"><a href="http://personal.ie.cuhk.edu.hk/~ccloy/">Chen Change
+							Loy</a></span>
+				</center>
+			</td>
 
-          </div>
-        </section>-->
-            
-        <section class="pt-5" id='#Challenge'>
-          <div class="wow fadeIn">
-            <h2 class="h1 text-left mb-5">Challenge</h2>
-          </div>
-          <div class="filter filter-basic">
-            <hr class="mb-5">
-            <div class="filter-gallery">
-              <div class="filter-item" data-category="ForgeryNet">
-                  <div class="col-lg-12 col-xl-12 ml-xl-4 mb-4">               
-                      <h8 class="mb-3 font-weight-bold dark-grey-text">
-                      <a href="https://competitions.codalab.org/competitions/33386"> ForgeryNet Challenge 2021 </a> will be hosted in the <a href="https://sense-human.github.io/"> ICCV SenseHuman workshop</a> ！
-                      </h8>
-                  </div>
-                  <hr class="mb-5">
-              </div>
-            </div>
-          </div>
-        </section> 
+		</tr>
+	</table>
 
-                
-        <!-- <section class="pt-5" id='#Video'>
-          <div class="wow fadeIn">
-            <h2 class="h1 text-left mb-5">Video</h2>
-          </div>
-          <div class="filter filter-basic">
-            <hr class="mb-5">
-            <div class="filter-gallery">
-              <div class="filter-item" data-category="place">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/e8XIL3Di2Y8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  <hr class="mb-5">
-              </div>
-            </div>
-          </div>
-        </section>  -->
+	<br> -->
+
+	<!-- <table align=center width=900px>
+		<tr>
+			<td align=center width=80px>
+				<center>
+					<span style="font-size:20px">Nanyang Technological University</span>
+				</center>
+			</td>
+
+			<td align=center width=80px>
+				<center>
+					<span style="font-size:20px">SenseTime Research</span>
+				</center>
+			</td>
+
+		</tr>
+	</table>
+
+	<br> -->
+
+	<table align=center width=900px>
+		<tr>
+			<td align=center width=80px>
+				<center>
+					<span>anonymous</span>
+				</center>
+			</td>
+
+		</tr>
+	</table>
 
 
-        <!--Section: Cards-->
-        <section class="pt-5" id='#download'>
-
-          <!-- <div class="card-body text-white text-center py-5 px-5 my-5">
-
-            <img src="img/teaser.png"
-              class="img-fluid" alt="img-404">
-
-          </div> -->
-
-          <!-- Heading & Description -->
-          <div class="wow fadeIn">
-            <!--Section heading-->
-            <h2 class="h1 text-left mb-5">Download</h2>
-          </div>
-          <!-- Heading & Description -->
-
-          <div class="filter filter-basic">
-            <hr class="mb-5">
-            <div class="filter-gallery">
+	<!--
+	<div class="authors">
+	  <a href="http://wywu.github.io">Wayne Wu</a><sup>1</sup>&nbsp;&nbsp;
+	  <a href="https://ai.stanford.edu/~kaidicao/">Kaidi Cao</a><sup>2</sup>&nbsp;&nbsp;
+	  <a href="https://scholar.google.com/citations?user=F5rVlz0AAAAJ&hl=en&oi=sra">Cheng Li</a><sup>1</sup>&nbsp;&nbsp;
+	  <a href="https://scholar.google.com/citations?user=AerkT0YAAAAJ&hl=en">Chen Qian</a><sup>1</sup>&nbsp;&nbsp;
+	  <a href="http://personal.ie.cuhk.edu.hk/~ccloy/">Chen Change Loy</a><sup>3</sup>&nbsp;&nbsp;
+	</div>
+	<div class="affiliations">
+	  <sup>1</sup><a href="https://www.sensetime.com/?lang=en-us">SenseTime Research<br></a>
+	  <sup>2</sup><a href="http://svl.stanford.edu/">Stanford University<br></a>
+	  <sup>3</sup><a href="http://scse.ntu.edu.sg/Pages/Home.aspx">Nanyang Technological University<br></a>
+	</div> -->
 
 
-              
+	<br>
+	<table align=center width=900px>
+		<tr>
+			<td width=900px>
+				<center>
+					<a href="images/main.png"><img src="images/main.png" height="400px"></img>
+						</href></a><br>
+				</center>
+			</td>
+		</tr>
+	</table>
 
-        <!--Grid dataset-->
+	<br>
+	<p style="text-align:justify">
+		We present our on-going effort of constructing a large-scale benchmark for face forgery detection. The first
+		version of this benchmark, DeeperForensics-1.0, represents the largest face forgery detection dataset by far,
+		with 60,000 videos constituted by a total of 17.6 million frames, 10 times larger than existing datasets of the
+		same kind. Extensive real-world perturbations are applied to obtain a more challenging benchmark of larger scale
+		and higher diversity. All source videos in DeeperForensics-1.0 are carefully collected, and fake videos are
+		generated by a newly proposed end-to-end face swapping framework. The quality of generated videos outperforms
+		those in existing datasets, validated by user studies. The benchmark features a hidden test set, which contains
+		manipulated videos achieving high deceptive scores in human evaluations. We further contribute a comprehensive
+		study that evaluates five representative detection baselines and make a thorough analysis of different settings.
+	</p>
+	<br><br>	
+	<hr>
 
+	<table align=center width=1100>
+		<center>
+			<h1>Demo</h1>
+		</center>
+		<!-- <tr>
+  	              <center>
+					  <iframe width="800" height="450" src="https://www.youtube.com/embed/b6iKqkJht38" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				  </center>
+              </tr> -->
+	</table>
+	<br><br>
+	<hr>
 
-        <div class="filter-item" data-category="place">
-            <div class="row mt-3 wow fadeIn">
-            <!--Grid column-->
-            <div class="col-lg-5 col-xl-4 mb-4">
-                <!--Featured image-->
-                <div class="view overlay rounded z-depth-1">
-                <!-- <img src="http://mmlab.ie.cuhk.edu.hk/images/datasets/cuhk_square.jpg" -->
-                <img src="img/dataset.png"
-                    class="img-fluid" alt="img-404">
-                </div>
-            </div>
-            <!--Grid column-->
+	<!-- Paper -->
+	<!-- <table align=center width=1100>
+		<center>
+			<h1>Paper</h1>
+		</center>
+		<tr>
+			<td><a href="./support/paper.pdf"><img style="height:180px" src="./support/paper_3d.jpg" /></a></td>
+			<td><span style="font-size:14pt">DeeperForensics-1.0: A Large-Scale Dataset for Real-World Face Forgery
+					Detection<br><br>
+					<i>Liming Jiang, Ren Li, Wayne Wu, Chen Qian, Chen Change Loy</i><br><br>
+					IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2020
+			</td>
+		</tr>
+	</table> -->
 
-            <!--Grid column-->
-            <div class="col-lg-7 col-xl-7 ml-xl-4 mb-4">
-                <h3 class="mb-3 font-weight-bold dark-grey-text">
-                <strong>ForgeryNet Dataset</strong>
-                </h3>
-                
-                </p>
-                <p class="grey-text">
-                ForgerNet dataset contains 2.9 million images and 221,247 videos,  7 image-level approaches and 8 video-level approaches manipulations from all over the world (click "Download * Set" to download). Each video and image is associated with its label (click "Download * List" to download).   <br>
-                MD5: <br>
-                272d385f3cac5dd6feabc25711c18a41  Training.tar  <br>   
-                  You should use `cat Training.tar.* >> Training.tar` after downloading the training set from Google Drive. <br>  
-                df320faca2128e022764f8d0e4bc75a1  Validation.tar  <br>
-                e4218faa4b934345977202edfbf89301  public_test_images.tar  <br>
-                92b870009cb03832b2c2795b6a35629f  public_test_videos.tar  <br>
-                <!-- 7d2c0cf50bdc77890ace1ba4461e1893  Test_with_real.tar  <br> -->
-                <!-- 8558b99366ccb93cd9da56f600f0901f  test_list.tar  <br> -->
-                </p>
-                
-                <p class="grey-text">
-                If you can access Google Drive:   <br>
-                </p>
+	<!-- <table align=center width=400px>
+		<tr>
+			<td><span style="font-size:14pt">
+					<center>
+						<a href="./support/paper.pdf">[PDF]</a>
+					</center>
+			</td>
 
-                <a href="https://drive.google.com/drive/folders/1gViqLc4l9sT1WTB-_hlcDUCWYskT2_LE?usp=sharing" class="btn btn-sm btn-outline-dark">Download   Training   Set
-                    <i class="fas fa-download ml-2"></i>
-                </a>
-                      
-                <a href="https://drive.google.com/file/d/1am20PkJVkKtXJvyH58wLcGoat3zGDudO/view?usp=sharing" class="btn btn-sm btn-outline-dark">Download Validation Set
-                    <i class="fas fa-download ml-2"></i>
-                </a>  
-              
-                <a href="https://drive.google.com/file/d/1conYQXWguAwJ1eEwewHyMBGUtgjgR_sM/view?usp=sharing" class="btn btn-sm btn-outline-dark">Download Image Test Set
-                    <i class="fas fa-download ml-2"></i>
-                </a>  
-                
-                <a href="https://drive.google.com/file/d/1CSJOkDR_jJvq7qUGP8oGcwpoPdKGzfgb/view?usp=sharing" class="btn btn-sm btn-outline-dark">Download Video Test Set
-                    <i class="fas fa-download ml-2"></i>
-                </a>  
+			<td><span style="font-size:14pt">
+					<center>
+						<a href="./support/bibtex.txt">[BibTex]</a>
+					</center>
+			</td>
+		</tr>
+	</table>
+	<br> -->
 
-                <a href="https://drive.google.com/file/d/1ZqPqmYdqmq4_HLZu1c5ySXhcR1WQWQ9L/view?usp=sharing" class="btn btn-sm btn-outline-dark">Download   Training   List
-                    <i class="fas fa-download ml-2"></i>
-                </a>
-              
-                <a href="https://drive.google.com/file/d/14Rqq4C4oHK6FEqyTIiVcQy7wQuMHGQzu/view?usp=sharing" class="btn btn-sm btn-outline-dark">Download  Validation  List
-                    <i class="fas fa-download ml-2"></i>
-                </a>
-              
-                <a href="https://raw.githubusercontent.com/yinanhe/ForgeryNet/main/Readme.txt" class="btn btn-sm btn-outline-dark"> README
-                    <i class="fas fa-download ml-2"></i>
-                </a>
-                
-                <p class="grey-text">
-                If you cannot access Google:   <br>
-                </p>
-                
-                <a href="https://115.com/s/swnk84d3wl3?password=cvpr&#ForgeryNet" class="btn btn-sm btn-outline-dark">Download Train&Val"
-                    <i class="fas fa-download ml-2"></i>
-                </a>
-              
-            </div>
-            <!--Grid column-->
+	<!-- <table align=center width=1100>
+		<center>
+			<h1>Challenge Report</h1>
+		</center>
+		<tr>
+			<td><a href="../DFC20/resources/DFC20_Summary.pdf"><img style="height:180px"
+						src="../DFC20/resources/report_3d.jpg" /></a></td>
+			<td><span style="font-size:14pt">DeeperForensics Challenge 2020 on Real-World Face Forgery Detection:
+					Methods and Results<br><br>
+					<i>Liming Jiang, Zhengkui Guo, Wayne Wu, Zhaoyang Liu, Ziwei Liu, Chen Change Loy, et
+						al.</i><br><br>
+					arXiv preprint, 2021
+			</td>
+		</tr>
+	</table> -->
 
-            </div>
-            <!--Grid row-->
+	<!-- <table align=center width=400px>
+		<tr>
+			<td><span style="font-size:14pt">
+					<center>
+						<a href="../DFC20/resources/DFC20_Summary.pdf">[PDF]</a>
+					</center>
+			</td>
 
-            <hr class="mb-5">
+			<td><span style="font-size:14pt">
+					<center>
+						<a href="../DFC20/resources/bibtex.txt">[BibTex]</a>
+					</center>
+			</td>
+		</tr>
+	</table>
+	<br> -->
 
-            We   construct   theForgeryNet dataset, an extremely large face forgery datasetwith  unified  annotations  in  image-  and  video-level  dataacross  four  tasks:   1)Image  Forgery  Classification,  in-cluding two-way (real / fake),  three-way (real / fake with identity-replaced  forgery  approaches  /  fake  with  identity-remained  forgery  approaches),  andn-way  (real  and15respective  forgery  approaches)  classification.2)Spa-tial  Forgery  Localization,  which  segments  the  manipu-lated  area  of  fake  images  compared  to  their  correspond-ing  real  images.   3)Video  Forgery  Classification,  whichre-defines the video-level forgery classification with manip-ulated  frames  in  random  positions.    This  task  is  impor-tant  because  attackers  in  real  world  are  free  to  manipu-late any target frame.  and 4)Temporal Forgery Localiza-tion, to localize the temporal segments which are manipu-lated.   ForgeryNet is by far the largest publicly availabledeep face forgery dataset in terms of data-scale (2.9 millionimages, 221,247 videos), manipulations (7 image-level ap-proaches, 8 video-level approaches), perturbations (36 in-dependent and more mixed perturbations) and annotations(6.3  million  classification  labels,  2.9  million  manipulated area annotations and 221,247 temporal forgery segment la-bels).  We perform extensive benchmarking and studies ofexisting face forensics methods and obtain several valuableobservations.  We hope that the scale, quality, and varietyof our ForgeryNet dataset will foster further research andinnovation in the area of face forgery classification, as wellas spatial and temporal forgery localizationetc.
+	<!-- <table align=center width=1100>
+		<center>
+			<h1>Book Chapter</h1>
+		</center>
+		<tr>
+			<td><a href="./support/chapter.pdf"><img height="200px" width="146px"
+						src="./support/deepfakes_book.jpg" /></a></td>
+			<td><span style="font-size:14pt">DeepFakes Detection: the DeeperForensics Dataset and Challenge<br><br>
+					<i>Liming Jiang, Wayne Wu, Chen Qian, Chen Change Loy</i><br><br>
+					Digital Face Manipulation and Detection - From DeepFakes to Morphing Attacks, Springer, 2022
+			</td>
+		</tr>
+	</table>
 
-            <hr class="mb-5">
-        </div>
-        <!--Grid dataset-->
+	<table align=center width=400px>
+		<tr>
+			<td><span style="font-size:14pt">
+					<center>
+						<a href="./support/chapter.pdf">[PDF]</a>
+					</center>
+			</td>
 
-                  </div><!-- filter-gallary -->
+			<td><span style="font-size:14pt">
+					<center>
+						<a href="./support/chapter_bibtex.txt">[BibTex]</a>
+					</center>
+			</td>
+		</tr>
+	</table>
+	<br> -->
 
-                </div><!-- filter -->
+	<!-- <hr> -->
 
+	<!-- Download -->
+	<table align=center width=1100>
+		<center>
+			<h1>Downloads</h1>
+		</center>
+		<tr>
 
-                <!--Pagination-->
-                <!-- <nav class="d-flex justify-content-center wow fadeIn">
-                  <ul class="pagination pg-blue">
+			<td>
+				<center>
+					<!-- <a href= "#"
+						class="imageLink"><img src="./support/dataset.png" width="160"></a><br> -->
+					<a href="https://github.com/EndlessSora/DeeperForensics-1.0/tree/master/dataset">SHIELD
+						Dataset</a>
+				</center>
+			</td>
 
-                    <li class="page-item disabled">
-                      <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                      </a>
-                    </li>
+			<!-- <td>
+				<center>
+					<a href="https://github.com/EndlessSora/DeeperForensics-1.0" class="imageLink"><img
+							src="./support/github.png" width="160"></a><br>
+					<a href="https://github.com/EndlessSora/DeeperForensics-1.0">Code</a>
+				</center>
+			</td> -->
 
-                    <li class="page-item active">
-                      <a class="page-link" href="#">1
-                        <span class="sr-only">(current)</span>
-                      </a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">4</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">5</a>
-                    </li>
+		</tr>
+	</table>
+	<br>
 
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav> -->
-                <!--Pagination-->
+	<hr>
 
-              </section>
-              <!--Section: Cards-->
+	<!--comparison / method / visualization (origin, many-to-many, perturbations)-->
+	<table align=center width=1100>
+		<center>
+			<h1>Comparison</h1>
+		</center>
+		<tr>
+			<td width=1100>
+				<center>
+					<a href="./support/comparison.png"><img src="./support/comparison.png" width="1100"></img></href>
+					</a><br>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<br>
 
+	<hr>
+	<table align=center width=1100>
+		<center>
+			<h1>Manipulation Method</h1>
+		</center>
+		<tr>
+			<td width=1100>
+				<center>
+					<a href="images/manipulation.png"><img src="images/manipulation.png" width="800"></img></href></a><br>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<p class="text-justify">
+		We also propose a new learning-based <b>many-to-many</b> face swapping method, <b>DeepFake Variational
+			Auto-Encoder (DF-VAE)</b>. DF-VAE improves <i>scalability</i>, <i>style matching</i>, and <i>temporal
+			continuity</i> to ensure face swapping <b>quality</b>. In training, we reconstruct the source and target
+		faces in blue and orange arrows, respectively, by extracting landmarks and constructing an unpaired sample as
+		the condition. Optical flow differences are minimized after reconstruction to improve temporal continuity. In
+		inference, we swap the latent codes and get the reenacted face in green arrows. Subsequent MAdaIN module fuses
+		the reenacted face and the original background resulting in the swapped face.
+	</p>
+	<br>
 
-        <section class="pt-5" id='#paper'>
-          <div class="wow fadeIn">
-            <h2 class="h1 text-left mb-5">Paper</h2>
-          </div>
-          <div class="filter filter-basic">
-            <hr class="mb-5">
-            <div class="filter-gallery">
-              <div class="filter-item" data-category="place">
-                  <div class="col-lg-7 col-xl-7 ml-xl-4 mb-4">
-                      <h8 class="mb-3 font-weight-bold dark-grey-text">
-                      <a href="doc/forgerynet.pdf" download>-> Click to download our paper<i class="fas fa-download ml-2"></i>
-                      </a>
-                      </h8>
-                      
-                      <p class="grey-text">
-                      </p>
-                      <p class="grey-text">
-                      </p>
+	<!-- <hr>
+	<table align=center width=1100>
+		<center>
+			<h1>Visualizations</h1>
+		</center>
+		<tr>
+			<td width=1100>
+				<center>
+					<a href="./support/data_collection.png"><img src="./support/data_collection.png" width="1100"></img>
+						</href></a><br>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td width=1100>
+				<center>
+					<a href="./support/data_collection_more.png"><img src="./support/data_collection_more.png"
+							width="1100"></img></href></a><br>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<center>
+		<p class="text-justify">
+			Extensive Data Collection
+		</p>
+	</center>
+	<br>
 
-                      <div class="row mt-3 wow fadeIn">
-                        <div class="col-lg-3 col-xl-4 ml-xl-4 mb-4">
-                          <div class="view overlay rounded z-depth-1">
-  <!--                           <a href="https://ai.bupt.edu.cn"> -->
-                            <img src="img/paper1.png"
-                              class="img-fluid" alt="paper-first-page">
-                            </a>
-                          </div>
-                        </div>
-                        <div class="col-lg-3 col-xl-4 ml-xl-4 mb-4">
-                          <div class="view overlay rounded z-depth-1">
-  <!--                           <a href="https://ai.bupt.edu.cn"> -->
-                            <img src="img/paper2.png"
-                              class="img-fluid" alt="paper-second-page">
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-                  <hr class="mb-5">
-              </div>
-            </div>
-          </div>
-        </section>
+	<table align=center width=1100>
+		<tr>
+			<td width=1100>
+				<center>
+					<a href="./support/manipulation.gif"><img src="./support/manipulation.gif" width="1100"></img>
+						</href></a><br>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<center>
+		<p class="text-justify">
+			Several Face Manipulation Results
+		</p>
+	</center>
+	<br>
 
+	<table align=center width=1100>
+		<tr>
+			<td width=1100>
+				<center>
+					<a href="./support/m2m.png"><img src="./support/m2m.png" width="1100"></img></href></a><br>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<center>
+		<p class="text-justify">
+			Many-to-Many (Three-to-Three) Face Swapping by a <b>Single</b> Model
+		</p>
+	</center>
+	<br>
 
-        <section class="pt-5" id='#project'>
-          <div class="wow fadeIn">
-            <h2 class="h1 text-left mb-5">Project</h2>
-          </div>
-          <div class="filter filter-basic">
-            <hr class="mb-5">
-            <div class="filter-gallery">
-              <div class="filter-item" data-category="ForgeryNet">
-                  <div class="col-lg-12 col-xl-12 ml-xl-4 mb-4">  
-                <!--<a href="http://xiongyu.me/placepedia.tar" class="btn btn-sm btn-outline-dark">Project Github
-                    <i class="fas fa-download ml-2"></i>
-                </a>-->                
-                      <h8 class="mb-3 font-weight-bold dark-grey-text">
-                      <a href="https://github.com/yinanhe/forgerynet">-> Click to ForgeryNet github repo
-                      </a>
-                      </h8>
-                  </div>
-                  <hr class="mb-5">
-              </div>
-            </div>
-          </div>
-        </section> 
+	<table align=center width=1100>
+		<tr>
+			<td width=1100>
+				<center>
+					<a href="./support/perturbations.png"><img src="./support/perturbations.png" width="1100"></img>
+						</href></a><br>
+				</center>
+			</td>
+		</tr>
+	</table>
+	<center>
+		<p class="text-justify">
+			Diverse Perturbations in Real World
+		</p>
+	</center>
+	<br> -->
 
-                
+	<hr>
 
-      </div>
-    </main>
-    <!--Main layout-->
-
+	<table align=center width=1100px>
+		<tr>
+			<td>
+				<center>
+					<h1>Acknowledgments</h1>
+				</center>
+				This work is supported by the SenseTime-NTU Collaboration Project, Singapore MOE AcRF Tier 1
+				(2018-T1-002-056), NTU SUG, and NTU NAP. We gratefully acknowledge the exceptional help from Hao Zhu and
+				Keqiang Sun for their contribution on source data collection and coordination.
+			</td>
+		</tr>
+	</table>
+	<br><br>
 </body>
 
 </html>
